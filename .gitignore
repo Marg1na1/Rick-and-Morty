@@ -10,7 +10,9 @@
 
 # next.js
 /.next/
+/.vscode/
 /out/
+
 
 # production
 /build

@@ -1,18 +1,28 @@
-import './globals.css'
+import Header from '@/components/Header/Header';
+import { Fira_Code } from '@next/font/google';
+import { FC } from 'react';
+import '../styles/setting.scss'
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
-      <body>{children}</body>
-    </html>
-  )
+const font = Fira_Code({
+    subsets: ["latin"]
+});
+
+type RootyLayoutProps = {
+    children: React.ReactNode;
 }
+
+const RootLayout: FC<RootyLayoutProps> = ({ children }) => {
+    return (
+        <html lang="en" >
+            <head />
+            <body className={font.className}>
+                <div className="root">
+                    <Header />
+                    {children}
+                </div>
+            </body>
+        </html>
+    );
+}
+
+export default RootLayout;
